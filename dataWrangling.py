@@ -12,6 +12,7 @@ def dataWrangling(pv_raw):
   pv_raw['Sun'] = np.zeros(len(pv_raw))
 
   # Date arranging initiation
+  pv_raw['h00'] = np.zeros(len(pv_raw))
   pv_raw['h01'] = np.zeros(len(pv_raw))
   pv_raw['h02'] = np.zeros(len(pv_raw))
   pv_raw['h03'] = np.zeros(len(pv_raw))
@@ -83,51 +84,53 @@ def dataWrangling(pv_raw):
 
   # Data wrangling
   for i in range(len(pv_raw)):
-    if pv_raw.Datetime[i][10:12] == '01':
+    if pv_raw.Datetime[i][11:13] == '00':
+      pv_raw['h00'][i] = 1
+    elif pv_raw.Datetime[i][11:13] == '01':
       pv_raw['h01'][i] = 1
-    elif pv_raw.Datetime[i][10:12] == '02':
+    elif pv_raw.Datetime[i][11:13] == '02':
       pv_raw['h02'][i] = 1
-    elif pv_raw.Datetime[i][10:12] == '03':
+    elif pv_raw.Datetime[i][11:13] == '03':
       pv_raw['h03'][i] = 1
-    elif pv_raw.Datetime[i][10:12] == '04':
+    elif pv_raw.Datetime[i][11:13] == '04':
       pv_raw['h04'][i] = 1
-    elif pv_raw.Datetime[i][10:12] == '05':
+    elif pv_raw.Datetime[i][11:13] == '05':
       pv_raw['h05'][i] = 1
-    elif pv_raw.Datetime[i][10:12] == '06':
+    elif pv_raw.Datetime[i][11:13] == '06':
       pv_raw['h06'][i] = 1
-    elif pv_raw.Datetime[i][10:12] == '07':
+    elif pv_raw.Datetime[i][11:13] == '07':
       pv_raw['h07'][i] = 1
-    elif pv_raw.Datetime[i][10:12] == '08':
+    elif pv_raw.Datetime[i][11:13] == '08':
       pv_raw['h08'][i] = 1
-    elif pv_raw.Datetime[i][10:12] == '09':
+    elif pv_raw.Datetime[i][11:13] == '09':
       pv_raw['h09'][i] = 1
-    elif pv_raw.Datetime[i][10:12] == '10':
+    elif pv_raw.Datetime[i][11:13] == '10':
       pv_raw['h10'][i] = 1
-    elif pv_raw.Datetime[i][10:12] == '11':
+    elif pv_raw.Datetime[i][11:13] == '11':
       pv_raw['h11'][i] = 1
-    elif pv_raw.Datetime[i][10:12] == '12':
+    elif pv_raw.Datetime[i][11:13] == '12':
       pv_raw['h12'][i] = 1
-    elif pv_raw.Datetime[i][10:12] == '13':
+    elif pv_raw.Datetime[i][11:13] == '13':
       pv_raw['h13'][i] = 1
-    elif pv_raw.Datetime[i][10:12] == '14':
+    elif pv_raw.Datetime[i][11:13] == '14':
       pv_raw['h14'][i] = 1
-    elif pv_raw.Datetime[i][10:12] == '15':
+    elif pv_raw.Datetime[i][11:13] == '15':
       pv_raw['h15'][i] = 1
-    elif pv_raw.Datetime[i][10:12] == '16':
+    elif pv_raw.Datetime[i][11:13] == '16':
       pv_raw['h16'][i] = 1
-    elif pv_raw.Datetime[i][10:12] == '17':
+    elif pv_raw.Datetime[i][11:13] == '17':
       pv_raw['h17'][i] = 1
-    elif pv_raw.Datetime[i][10:12] == '18':
+    elif pv_raw.Datetime[i][11:13] == '18':
       pv_raw['h18'][i] = 1
-    elif pv_raw.Datetime[i][10:12] == '19':
+    elif pv_raw.Datetime[i][11:13] == '19':
       pv_raw['h19'][i] = 1
-    elif pv_raw.Datetime[i][10:12] == '20':
+    elif pv_raw.Datetime[i][11:13] == '20':
       pv_raw['h20'][i] = 1
-    elif pv_raw.Datetime[i][10:12] == '21':
+    elif pv_raw.Datetime[i][11:13] == '21':
       pv_raw['h21'][i] = 1
-    elif pv_raw.Datetime[i][10:12] == '22':
+    elif pv_raw.Datetime[i][11:13] == '22':
       pv_raw['h22'][i] = 1
-    elif pv_raw.Datetime[i][10:12] == '23':
+    elif pv_raw.Datetime[i][11:13] == '23':
       pv_raw['h23'][i] = 1
 
     pv_raw[pv_raw.Datetime[i][:2]][i] = 1
