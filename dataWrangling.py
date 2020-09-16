@@ -1,3 +1,6 @@
+import numpy as np
+import datatime
+
 def dataWrangling(pv_raw):
   # Weekday arranging initiation
   pv_raw['Mon'] = np.zeros(len(pv_raw))
