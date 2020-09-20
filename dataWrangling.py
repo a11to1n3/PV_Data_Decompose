@@ -160,6 +160,34 @@ def dataWrangling(pv_raw):
     elif pv_raw.Datetime[i][4:5] == '12':
       pv_raw['Dec'][i] = 1
 
+    if pv_raw['Radiation'][i]>0 and pv_raw['Radiation'][i]<=100:
+      pv_raw['Radiation Level'] = 0
+    elif pv_raw['Radiation'][i]>100 and pv_raw['Radiation'][i]<=200:
+      pv_raw['Radiation Level'] = 1
+    elif pv_raw['Radiation'][i]>200 and pv_raw['Radiation'][i]<=300:
+      pv_raw['Radiation Level'] = 2
+    elif pv_raw['Radiation'][i]>300 and pv_raw['Radiation'][i]<=400:
+      pv_raw['Radiation Level'] = 3
+    elif pv_raw['Radiation'][i]>400 and pv_raw['Radiation'][i]<=500:
+      pv_raw['Radiation Level'] = 4
+    elif pv_raw['Radiation'][i]>500 and pv_raw['Radiation'][i]<=600:
+      pv_raw['Radiation Level'] = 5
+    elif pv_raw['Radiation'][i]>600 and pv_raw['Radiation'][i]<=700:
+      pv_raw['Radiation Level'] = 6
+    elif pv_raw['Radiation'][i]>700 and pv_raw['Radiation'][i]<=800:
+      pv_raw['Radiation Level'] = 7
+    elif pv_raw['Radiation'][i]>800 and pv_raw['Radiation'][i]<=900:
+      pv_raw['Radiation Level'] = 8
+    elif pv_raw['Radiation'][i]>900 and pv_raw['Radiation'][i]<=1000:
+      pv_raw['Radiation Level'] = 9
+    elif pv_raw['Radiation'][i]>1000 and pv_raw['Radiation'][i]<=1100:
+      pv_raw['Radiation Level'] = 10
+    elif pv_raw['Radiation'][i]>1100 and pv_raw['Radiation'][i]<=1200:
+      pv_raw['Radiation Level'] = 11
+    elif pv_raw['Radiation'][i]>1200 and pv_raw['Radiation'][i]<=1300:
+      pv_raw['Radiation Level'] = 12
+    elif pv_raw['Radiation'][i]>1300 and pv_raw['Radiation'][i]<=1400:
+      pv_raw['Radiation Level'] = 13
     
     day, month, year = (int(x) for x in pv_raw.Datetime[i][:10].split('/'))
     pv_raw[datetime.date(year, month, day).strftime("%A")[:3]][i] = 1
