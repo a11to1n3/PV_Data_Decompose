@@ -2,6 +2,9 @@ import numpy as np
 import datetime
 
 def dataWrangling(pv_raw):
+  # Radiation level initiation
+  pv_raw['Radiation Level'] = np.zeros(len(pv_raw))
+
   # Weekday arranging initiation
   pv_raw['Mon'] = np.zeros(len(pv_raw))
   pv_raw['Tue'] = np.zeros(len(pv_raw))
