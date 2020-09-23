@@ -2,9 +2,6 @@ import numpy as np
 import datetime
 
 def dataWrangling(pv_raw):
-  # Radiation level initiation
-  pv_raw['Radiation Level'] = np.zeros(len(pv_raw))
-
   # Weekday arranging initiation
   pv_raw['Mon'] = np.zeros(len(pv_raw))
   pv_raw['Tue'] = np.zeros(len(pv_raw))
@@ -162,35 +159,6 @@ def dataWrangling(pv_raw):
       pv_raw['Nov'][i] = 1
     elif pv_raw.Datetime[i][4:5] == '12':
       pv_raw['Dec'][i] = 1
-
-    if pv_raw['Radiation'][i]>0 and pv_raw['Radiation'][i]<=100:
-      pv_raw['Radiation Level'][i] = 0
-    elif pv_raw['Radiation'][i]>100 and pv_raw['Radiation'][i]<=200:
-      pv_raw['Radiation Level'][i] = 1
-    elif pv_raw['Radiation'][i]>200 and pv_raw['Radiation'][i]<=300:
-      pv_raw['Radiation Level'][i] = 2
-    elif pv_raw['Radiation'][i]>300 and pv_raw['Radiation'][i]<=400:
-      pv_raw['Radiation Level'][i] = 3
-    elif pv_raw['Radiation'][i]>400 and pv_raw['Radiation'][i]<=500:
-      pv_raw['Radiation Level'][i] = 4
-    elif pv_raw['Radiation'][i]>500 and pv_raw['Radiation'][i]<=600:
-      pv_raw['Radiation Level'][i]= 5
-    elif pv_raw['Radiation'][i]>600 and pv_raw['Radiation'][i]<=700:
-      pv_raw['Radiation Level'][i]= 6
-    elif pv_raw['Radiation'][i]>700 and pv_raw['Radiation'][i]<=800:
-      pv_raw['Radiation Level'][i] = 7
-    elif pv_raw['Radiation'][i]>800 and pv_raw['Radiation'][i]<=900:
-      pv_raw['Radiation Level'][i] = 8
-    elif pv_raw['Radiation'][i]>900 and pv_raw['Radiation'][i]<=1000:
-      pv_raw['Radiation Level'][i] = 9
-    elif pv_raw['Radiation'][i]>1000 and pv_raw['Radiation'][i]<=1100:
-      pv_raw['Radiation Level'][i] = 10
-    elif pv_raw['Radiation'][i]>1100 and pv_raw['Radiation'][i]<=1200:
-      pv_raw['Radiation Level'][i] = 11
-    elif pv_raw['Radiation'][i]>1200 and pv_raw['Radiation'][i]<=1300:
-      pv_raw['Radiation Level'][i] = 12
-    elif pv_raw['Radiation'][i]>1300 and pv_raw['Radiation'][i]<=1400:
-      pv_raw['Radiation Level'][i]= 13
     
     day, month, year = (int(x) for x in pv_raw.Datetime[i][:10].split('/'))
     pv_raw[datetime.date(year, month, day).strftime("%A")[:3]][i] = 1
