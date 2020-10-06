@@ -25,7 +25,7 @@ def build(data_shape_1, data_shape_2):
     # design network
     model = keras.models.Sequential()
     model.add(keras.layers.LSTM(100,kernel_initializer='glorot_normal', return_sequences=True, input_shape=(data_shape_1,data_shape_2)))
-    model.add(keras.layers.LSTM(100,kernel_initializer='glorot_normal', ireturn_sequences=True, activation='selu'))
+    model.add(keras.layers.LSTM(100,kernel_initializer='glorot_normal', return_sequences=True, activation='selu'))
     model.add(keras.layers.LSTM(100,kernel_initializer='glorot_normal', activation='selu'))
     model.add(keras.layers.Dropout(0.6))
     model.add(keras.layers.Dense(data_shape_1,kernel_initializer='glorot_normal'))
